@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -23,13 +25,34 @@ android {
     }
 }
 
-dependencies {
+dependencies { config ->
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    roomDependencies(config)
+    networkLayerDependencies(config)
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+private static void roomDependencies(config) {
+    def room_version = "2.2.4"
+    config.implementation "androidx.room:room-runtime:$room_version"
+    config.kapt "androidx.room:room-compiler:$room_version"
+    config.implementation "androidx.room:room-ktx:$room_version"
+    config.testImplementation "androidx.room:room-testing:$room_version"
+
+}
+
+private static void networkLayerDependencies(config) {
+    config.implementation 'com.squareup.retrofit2:retrofit:2.7.2'
+    config.implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    config.implementation 'com.squareup.okhttp3:logging-interceptor:3.14.2'
+    config.implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    config.implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    config.implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 }
