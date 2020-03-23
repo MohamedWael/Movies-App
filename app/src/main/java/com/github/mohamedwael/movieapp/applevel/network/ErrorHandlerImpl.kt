@@ -1,5 +1,6 @@
 package com.github.mohamedwael.movieapp.applevel.network
 
+import com.github.mohamedwael.core.domain.ErrorHandler
 import com.github.mohamedwael.movieapp.R
 import com.google.gson.stream.MalformedJsonException
 import retrofit2.HttpException
@@ -11,7 +12,8 @@ const val BAD_REQUEST = 400
 const val UNAUTHORIZED = 401
 const val INTERNAL_SERVER_ERROR = 500
 
-class ErrorHandlerImpl(throwable: Throwable) : ErrorHandler {
+class ErrorHandlerImpl(throwable: Throwable) :
+    ErrorHandler {
     override var errorMsgStringRes: Int = 0
     override var errorMsgString: String = ""
     override var throwable: Throwable? = null

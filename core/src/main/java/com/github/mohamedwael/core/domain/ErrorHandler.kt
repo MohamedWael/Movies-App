@@ -1,4 +1,4 @@
-package com.github.mohamedwael.movieapp.applevel.network
+package com.github.mohamedwael.core.domain
 
 interface ErrorHandler {
     var errorMsgStringRes: Int
