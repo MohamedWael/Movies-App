@@ -1,12 +1,15 @@
 package com.github.mohamedwael.movieapp.modules.movies.adapter
 
+import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mohamedwael.movieapp.R
+import com.github.mohamedwael.movieapp.applevel.MOVIE_ID
 import com.github.mohamedwael.movieapp.applevel.network.loadImage
 import com.github.mohamedwael.movieapp.applevel.storage.dbentries.MovieItem
 import com.github.mohamedwael.movieapp.applevel.toPixel
@@ -52,7 +55,15 @@ class MoviesAdapter(val movies: List<MovieItem>) :
             roundedImageView.visibility = View.GONE
         }
         holder.itemView.setOnClickListener {
-            Toast.makeText(it.context, movie.name, Toast.LENGTH_SHORT).show()
+            if (movie.id != null) {
+                Navigation.findNavController(holder.itemView)
+                    .navigate(R.id.action_moviesFragment_to_movieDetailsFragment, Bundle().apply {
+                        putInt(MOVIE_ID, movie.id)
+                    })
+            } else {
+                Toast.makeText(it.context, R.string.cannot_open_this_movie, Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 

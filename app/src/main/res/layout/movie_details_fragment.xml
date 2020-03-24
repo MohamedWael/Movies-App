@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.mohamedwael.movieapp.modules.moviedetails.viewmodel.MovieDetailsViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray"
+        android:orientation="vertical"
+        tools:context=".modules.moviedetails.view.MovieDetailsFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"
+                android:scaleType="fitXY"
+                app:imageFromUri="@{String.valueOf(viewModel.movie.image)}" />
+
+            <TextView
+
+                android:id="@+id/tvMovieTitle"
+                style="@style/movieTitle"
+                android:text="@{String.valueOf(viewModel.movie.name)}"
+                tools:text="Hello" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/bottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_top"
+            android:orientation="vertical"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="80dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            tools:context=".modules.moviedetails.view.MovieDescriptionFragment">
+
+            <TextView
+                android:id="@+id/tvSheetMovieTitle"
+                style="@style/movieTitle"
+                android:layout_marginTop="10dp"
+                android:text="@{viewModel.movie.name}"
+                tools:text="Hello" />
+
+            <TextView
+                android:id="@+id/tvMovieDescription"
+                style="@style/movieTitle"
+                android:text="@{viewModel.movie.description}"
+                android:textSize="16sp"
+                tools:text="Hello" />
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

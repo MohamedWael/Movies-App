@@ -6,8 +6,6 @@ import com.blogspot.mowael.baselibrary.fragments.BaseFragment
 
 open class MoviesBaseFragment : BaseFragment() {
 
-
-
     fun observeOnFragmentEvents(viewModel: MoviesBaseViewModel) {
         viewModel.showErrorLiveData.observe(viewLifecycleOwner, Observer {
             showSnakeMessage(object : ErrorMessageHandler {

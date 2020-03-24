@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hi"
-        android:textColor="@color/colorWhit"
+        android:textColor="@color/colorWhite"
         android:textSize="@dimen/splash_text_size" />
 
 </LinearLayout>

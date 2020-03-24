@@ -13,6 +13,6 @@ interface RestClient {
     @GET(MOVIES)
     fun getMovies(): Observable<MoviesResponse>
 
-    @GET("{$MOVIE_ID}")
+    @GET("$MOVIES/{$MOVIE_ID}")
     fun getMovieById(@Path(MOVIE_ID) movieId: String): Observable<MovieItem>
 }

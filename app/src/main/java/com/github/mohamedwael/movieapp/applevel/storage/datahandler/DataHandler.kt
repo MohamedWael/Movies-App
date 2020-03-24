@@ -9,24 +9,26 @@ import kotlinx.coroutines.withContext
 
 abstract class DataHandler<Data>(val database: AppDatabase) {
 
-    abstract fun insertItem(data: Data, onSuccess:()->Unit)
+    abstract fun insertItem(data: Data, onSuccess: () -> Unit)
 
-    abstract fun insertAll(data: List<Data>, onSuccess:()->Unit)
+    abstract fun insertAll(data: List<Data>, onSuccess: () -> Unit)
 
-    abstract fun update(data: Data, onSuccess:()->Unit)
+    abstract fun update(data: Data, onSuccess: () -> Unit)
 
-    abstract fun delete(data: Data, onSuccess:()->Unit)
+    abstract fun delete(data: Data, onSuccess: () -> Unit)
 
-    abstract fun deleteAll( onSuccess:()->Unit)
+    abstract fun deleteAll(onSuccess: () -> Unit)
 
     abstract fun getItems(): LiveData<List<Data>>
 
     abstract fun getItem(): LiveData<Data>
 
-    fun <T> doAsync(action: () -> T,  onSuccess:()->Unit) {
+    abstract fun getItemByParam(param: Any): LiveData<Data>
+
+    fun <T> doAsync(action: () -> T, onSuccess: () -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
             action()
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 onSuccess()
             }
         }

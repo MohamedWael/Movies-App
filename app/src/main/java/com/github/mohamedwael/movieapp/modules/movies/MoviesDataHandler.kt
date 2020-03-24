@@ -15,7 +15,7 @@ class MoviesDataHandler(db: AppDatabase) : DataHandler<MovieItem>(db) {
     }
 
     override fun update(data: MovieItem, onSuccess: () -> Unit) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        doAsync({ database.movieItemDao().updateMovie(data) }, onSuccess)
     }
 
     override fun delete(data: MovieItem, onSuccess: () -> Unit) {
@@ -28,8 +28,12 @@ class MoviesDataHandler(db: AppDatabase) : DataHandler<MovieItem>(db) {
 
     override fun getItems(): LiveData<List<MovieItem>> = database.movieItemDao().getAllMovies()
 
-
     override fun getItem(): LiveData<MovieItem> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun getItemByParam(param: Any): LiveData<MovieItem> =
+        database.movieItemDao().getMovieById(param as Int)
+
+
 }
