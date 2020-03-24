@@ -1,4 +1,4 @@
-package com.github.mohamedwael.movieapp.movies
+package com.github.mohamedwael.movieapp.modules.movies
 
 import androidx.lifecycle.LiveData
 import com.github.mohamedwael.movieapp.applevel.storage.AppDatabase

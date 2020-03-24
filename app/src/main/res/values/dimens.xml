@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_text_size">90sp</dimen>
+    <dimen name="view_holder_side_margin">10dp</dimen>
+    <dimen name="view_holder_top_margin">5dp</dimen>
+    <dimen name="view_holder_bottom_margin">2dp</dimen>
+</resources>

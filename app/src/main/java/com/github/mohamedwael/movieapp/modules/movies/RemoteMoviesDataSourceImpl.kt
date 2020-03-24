@@ -1,4 +1,4 @@
-package com.github.mohamedwael.movieapp.movies
+package com.github.mohamedwael.movieapp.modules.movies
 
 import com.github.mohamedwael.core.data.RemoteMovieDataSource
 import com.github.mohamedwael.core.domain.ErrorHandler

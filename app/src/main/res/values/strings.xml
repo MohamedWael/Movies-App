@@ -11,5 +11,6 @@
     <string name="connect_exception">Check your internet connection</string>
     <string name="unauthorized">Invalid authorization code!</string>
     <string name="server_error">Internal server error</string>
+    <string name="hi">Hi</string>
 
 </resources>

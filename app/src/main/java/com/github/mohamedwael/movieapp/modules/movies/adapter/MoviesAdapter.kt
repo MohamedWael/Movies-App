@@ -1,11 +1,10 @@
-package com.github.mohamedwael.movieapp.movies.adapter
+package com.github.mohamedwael.movieapp.modules.movies.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.setMargins
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mohamedwael.movieapp.R
 import com.github.mohamedwael.movieapp.applevel.network.loadImage
@@ -24,10 +23,10 @@ class MoviesAdapter(val movies: List<MovieItem>) :
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         params.setMargins(
-            parent.context.toPixel(10f).toInt(),
-            parent.context.toPixel(5f).toInt(),
-            parent.context.toPixel(10f).toInt(),
-            parent.context.toPixel(2f).toInt()
+            parent.context.resources.getDimensionPixelSize(R.dimen.view_holder_side_margin),
+            parent.context.resources.getDimensionPixelSize(R.dimen.view_holder_top_margin),
+            parent.context.resources.getDimensionPixelSize(R.dimen.view_holder_side_margin),
+            parent.context.resources.getDimensionPixelSize(R.dimen.view_holder_bottom_margin)
         )
         view.layoutParams = params
         return MoviesViewHolder(
@@ -52,7 +51,7 @@ class MoviesAdapter(val movies: List<MovieItem>) :
         } else {
             roundedImageView.visibility = View.GONE
         }
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             Toast.makeText(it.context, movie.name, Toast.LENGTH_SHORT).show()
         }
     }

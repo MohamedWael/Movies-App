@@ -1,4 +1,4 @@
-package com.github.mohamedwael.movieapp.movies.view
+package com.github.mohamedwael.movieapp.modules.movies.view
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -11,9 +11,9 @@ import com.blogspot.mowael.baselibrary.contract.ErrorMessageHandler
 import com.blogspot.mowael.baselibrary.fragments.BaseFragment
 
 import com.github.mohamedwael.movieapp.databinding.MoviesFragmentBinding
-import com.github.mohamedwael.movieapp.movies.adapter.MoviesAdapter
-import com.github.mohamedwael.movieapp.movies.viewmodel.MoviesViewModel
-import com.github.mohamedwael.movieapp.movies.viewmodel.MoviesViewModelFactory
+import com.github.mohamedwael.movieapp.modules.movies.adapter.MoviesAdapter
+import com.github.mohamedwael.movieapp.modules.movies.viewmodel.MoviesViewModel
+import com.github.mohamedwael.movieapp.modules.movies.viewmodel.MoviesViewModelFactory
 
 class MoviesFragment : BaseFragment() {
 

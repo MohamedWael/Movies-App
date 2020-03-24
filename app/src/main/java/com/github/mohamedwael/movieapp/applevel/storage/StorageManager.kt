@@ -1,7 +1,7 @@
 package com.github.mohamedwael.movieapp.applevel.storage
 
 import android.content.Context
-import com.github.mohamedwael.movieapp.movies.MoviesDataHandler
+import com.github.mohamedwael.movieapp.modules.movies.MoviesDataHandler
 
 object StorageManager {
 

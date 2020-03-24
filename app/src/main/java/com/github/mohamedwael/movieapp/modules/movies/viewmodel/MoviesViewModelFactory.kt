@@ -1,4 +1,4 @@
-package com.github.mohamedwael.movieapp.movies.viewmodel
+package com.github.mohamedwael.movieapp.modules.movies.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -8,8 +8,11 @@ object MoviesViewModelFactory : ViewModelProvider.Factory {
 
     lateinit var moviesRepo: MoviesRepo
 
+    /**
+     * This is used for simplicity instead of implementing dependency injection
+     */
     fun inject(moviesRepo: MoviesRepo) {
-        MoviesViewModelFactory.moviesRepo = moviesRepo
+        this.moviesRepo = moviesRepo
     }
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

@@ -1,4 +1,4 @@
-package com.github.mohamedwael.movieapp.movies.viewmodel
+package com.github.mohamedwael.movieapp.modules.movies.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
