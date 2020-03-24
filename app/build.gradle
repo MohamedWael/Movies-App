@@ -23,6 +23,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
 }
 
 dependencies { config ->
@@ -36,6 +45,14 @@ dependencies { config ->
     implementation 'com.github.MohamedWael:UtilsLibrary:1.0.1'
     implementation project(':core')
 
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     roomDependencies(config)
     networkLayerDependencies(config)
 
@@ -45,7 +62,7 @@ dependencies { config ->
 }
 
 private static void roomDependencies(config) {
-    def room_version = "2.2.4"
+    def room_version = "2.2.5"
     config.implementation "androidx.room:room-runtime:$room_version"
     config.kapt "androidx.room:room-compiler:$room_version"
     config.implementation "androidx.room:room-ktx:$room_version"
