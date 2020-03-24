@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Movies App</string>
+
+    <string name="data_base_name">movies_db</string>
+
+    <string name="bad_request">Please make sure that the data are valid</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="internal_fix">There are some fixes are running now, please try again later</string>
+    <string name="no_connection">No connection</string>
+    <string name="connection_error">Connection error</string>
+    <string name="connect_exception">Check your internet connection</string>
+    <string name="unauthorized">Invalid authorization code!</string>
+    <string name="server_error">Internal server error</string>
+
 </resources>
