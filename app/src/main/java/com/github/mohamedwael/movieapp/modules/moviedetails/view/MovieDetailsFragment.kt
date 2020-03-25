@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.github.mohamedwael.movieapp.applevel.MOVIE_ID
-import com.github.mohamedwael.movieapp.applevel.storage.dbentries.MovieItem
 import com.github.mohamedwael.movieapp.base.MoviesBaseFragment
 import com.github.mohamedwael.movieapp.databinding.MovieDetailsFragmentBinding
 import com.github.mohamedwael.movieapp.modules.moviedetails.viewmodel.MovieDetailsViewModel
@@ -30,28 +28,43 @@ class MovieDetailsFragment : MoviesBaseFragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-
         val sheetBehavior = BottomSheetBehavior.from(binding.bottomSheet);
         sheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-
+                //not needed
             }
 
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
                     BottomSheetBehavior.STATE_COLLAPSED -> {
+                        hideSheetTitle(binding)
+                        showScreenTitle(binding)
                     }
                     BottomSheetBehavior.STATE_EXPANDED -> {
-                    }
-                    BottomSheetBehavior.STATE_DRAGGING -> {
+                        showSheetTitle(binding)
+                        hideScreenTitle(binding)
                     }
                 }
             }
 
         })
-
-
         viewModel.getMovieById(arguments?.getInt(MOVIE_ID))
         return binding.root
+    }
+
+    private fun showScreenTitle(binding: MovieDetailsFragmentBinding) {
+        binding.tvMovieTitle.animate().alpha(1.0f)
+    }
+
+    private fun showSheetTitle(binding: MovieDetailsFragmentBinding) {
+        binding.tvSheetMovieTitle.animate().alpha(1.0f)
+    }
+
+    private fun hideScreenTitle(binding: MovieDetailsFragmentBinding) {
+        binding.tvMovieTitle.animate().alpha(0f)
+    }
+
+    private fun hideSheetTitle(binding: MovieDetailsFragmentBinding) {
+        binding.tvSheetMovieTitle.animate().alpha(0f)
     }
 }

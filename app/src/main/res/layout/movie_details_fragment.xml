@@ -10,6 +10,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorGray"
@@ -45,7 +46,8 @@
             android:layout_margin="5dp"
             android:background="@drawable/rounded_top"
             android:orientation="vertical"
-            app:behavior_hideable="true"
+            android:paddingTop="10dp"
+            app:behavior_hideable="false"
             app:behavior_peekHeight="80dp"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
             tools:context=".modules.moviedetails.view.MovieDescriptionFragment">
@@ -53,7 +55,7 @@
             <TextView
                 android:id="@+id/tvSheetMovieTitle"
                 style="@style/movieTitle"
-                android:layout_marginTop="10dp"
+                android:alpha="0"
                 android:text="@{viewModel.movie.name}"
                 tools:text="Hello" />
 
